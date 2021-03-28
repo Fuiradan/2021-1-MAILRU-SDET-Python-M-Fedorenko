@@ -15,8 +15,16 @@ class BaseCase:
         self.driver = driver
         self.config = config
 
+    @pytest.fixture()
+    def login(self, user_creds):
+        login = user_creds.get('login')
+        psw = user_creds.get('psw')
+        self.click(base_locators.LOGIN_LOCATOR)
+        self.fill_input(base_locators.EMAIL_LOCATOR, login)
+        self.fill_input(base_locators.PSW_LOCATOR, psw)
+        self.click(base_locators.BUTTON_LOCATOR)
+
     def find(self, locator, timeout = None):
-        #return self.driver.find_element(*locator)
         return self.wait(timeout).until(EC.presence_of_element_located(locator))
 
     def wait(self, timeout = None):
@@ -28,16 +36,11 @@ class BaseCase:
         field = self.find(locator)
         field.clear()
         field.send_keys(query)
-
-    def login(self):
-        login = "maxfedorenko86@mail.ru"
-        psw = "BGlogg3cXB"
-        self.click(base_locators.LOGIN_LOCATOR)
-        self.fill_input(base_locators.EMAIL_LOCATOR, login)
-        self.fill_input(base_locators.PSW_LOCATOR, psw)
-        self.click(base_locators.BUTTON_LOCATOR)
-
     
+    def get_data(self, locator):
+        field = self.find(locator)
+        return field.get_attribute('value')
+       
     def check_visibility(self, locator, timeout=None):
         return self.wait(timeout).until(EC.visibility_of_element_located(locator)).is_displayed()
 
