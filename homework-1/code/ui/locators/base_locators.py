@@ -1,0 +1,15 @@
+from selenium.webdriver.common.by import By
+
+LOGIN_LOCATOR = (By.XPATH, "//div[contains(@class, 'responseHead-module-button')]")
+EMAIL_LOCATOR = (By.NAME, 'email')
+PSW_LOCATOR = (By.NAME, 'password')
+BUTTON_LOCATOR = (By.XPATH, "//div[contains(@class, 'authForm-module-button')]")
+MENU_LOCATOR = (By.XPATH, '//div[contains(@class, "right-module-rightButton")]')
+EXIT_LOCATOR = (By.XPATH, '//a[@href="/logout"]')
+PROFILE_LOCATOR = (By.XPATH, '//a[@href="/profile"]')
+FIO_INPUT_LOCATOR = (By.XPATH, '//div[@data-name="fio"]//input')
+PHONE_INPUT_LOCATOR = (By.XPATH, '//div[@data-name="phone"]//input')
+EMAIL_INPUT_LOCATOR = (By.XPATH, '//div[contains(@class,"additional-email")]//input')
+SAVE_LOCATOR = (By.XPATH, '//div[text()="Сохранить"]')
+TEMPLATE_LOCATOR = (By.XPATH, '//a[@href="/{}"]')
+SPINNER_LOCATOR = (By.XPATH, '//div[contains(@class,"spinner")]')
