@@ -14,6 +14,9 @@ class MainPage(BasePage):
         self.find(self.locators.REQUEST_FIELD).send_keys(req)
         self.driver.hide_keyboard()
 
+    def check_visibility_of_keyboard(self):
+        return self.check_visibility(self.locators.KEYBOARD_BUTTON)
+        
     def enter_request(self):
         self.click_for_android(self.locators.INPUT_BUTTON)
     

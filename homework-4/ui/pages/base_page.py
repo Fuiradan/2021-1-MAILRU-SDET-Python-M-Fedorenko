@@ -1,4 +1,4 @@
-from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from appium.webdriver.common.touch_action import TouchAction
@@ -70,6 +70,9 @@ class BasePage(object):
             release(). \
             perform()
 
-    def press_back_button(self):
-        self.driver.press_keycode(4)
-
+    def check_visibility(self, locator):
+        try:
+            self.driver.find_element(locator[0], locator[1])
+            return True
+        except NoSuchElementException:
+            return False
