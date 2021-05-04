@@ -10,6 +10,7 @@ class MainPageLocators(BasePageLocators):
     INPUT_BUTTON = (MobileBy.ID,'ru.mail.search.electroscope:id/text_input_action')
     TEXTFIELD = (MobileBy.ID, 'ru.mail.search.electroscope:id/item_dialog_fact_card_content_text')
     SUGGEST_LIST = (MobileBy.ID, 'ru.mail.search.electroscope:id/suggests_list')
+    SUGGEST_QUESTION = (MobileBy.XPATH, '//android.widget.TextView[contains(@text,"Что ты умеешь?")]')
     SUGGEST_POPULATION = (MobileBy.XPATH, '//android.widget.TextView[contains(@text,"численность населения россии")]')
     POPULATION_FACT = (MobileBy.XPATH, '//android.widget.FrameLayout[3]//android.widget.TextView[contains(@resource-id,"card_title")]')
     RESULT_DIALOG = (MobileBy.XPATH, '//androidx.recyclerview.widget.RecyclerView/android.widget.TextView[contains(@resource-id,"dialog_item")]')

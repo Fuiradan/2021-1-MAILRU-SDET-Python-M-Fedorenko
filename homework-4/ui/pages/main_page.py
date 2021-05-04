@@ -4,6 +4,9 @@ from ui.locators.locators_marussia import MainPageLocators
 class MainPage(BasePage):
     locators = MainPageLocators()
 
+    def wait_for_loading(self):
+        self.find(self.locators.SUGGEST_QUESTION)
+
     def click_on_keyboard(self):
         self.click_for_android(self.locators.KEYBOARD_BUTTON)
         
@@ -39,10 +42,7 @@ class MainPage(BasePage):
     def check_player_title(self, expected_value) -> bool:
         res = self.find(self.locators.PLAYER_TITLE).text
         return res == expected_value
-
-    def click_play_button(self):
-        self.click_for_android(self.locators.PLAY_BUTTON)
-        
+       
     def change_waitForIdleTimeout(self):
         self.driver.update_settings({
             "waitForIdleTimeout": 100
