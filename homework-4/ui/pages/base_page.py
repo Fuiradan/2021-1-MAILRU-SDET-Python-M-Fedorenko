@@ -36,8 +36,8 @@ class BasePage(object):
         menu = self.find(loc_swipe_menu)
         dimension = menu.size
         location = menu.location
-        start_x = int(dimension['width'] * 0.8)
-        end_x = int(dimension['width'] * 0.5)
+        start_x = int(dimension['width'] * 0.9)
+        end_x = int(dimension['width'] * 0.7)
         y = int(location['y'])
         action. \
             press(x=start_x, y=y). \
