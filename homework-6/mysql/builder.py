@@ -16,7 +16,7 @@ class MySQL_Builder:
             )
             self.client.session.add(record)
         records = self.client.session.query(TopRequests).all()
-        return records
+        return parced_data, records
 
     def write_TotalRequests(self):
         parced_data = self.parcer.count_requests()
@@ -25,7 +25,7 @@ class MySQL_Builder:
             )
         self.client.session.add(record)
         records = self.client.session.query(TotalRequests).all()
-        return records
+        return parced_data, records
 
     def write_ClientErrorRequests(self):
         parced_data = self.parcer.biggest_reqs_with_client_errors()
@@ -38,7 +38,7 @@ class MySQL_Builder:
             )
             self.client.session.add(record)
         records = self.client.session.query(ClientErrorRequests).all()
-        return records        
+        return parced_data, records       
 
     def write_RequestsByMethod(self):
         parced_data = self.parcer.count_reqs_by_method()
@@ -49,7 +49,7 @@ class MySQL_Builder:
             )
             self.client.session.add(record)
         records = self.client.session.query(RequestsByMethod).all()
-        return records
+        return parced_data, records
 
     def write_ServerErrorUsers(self):
         parced_data = self.parcer.top_clients_with_server_error()
@@ -60,4 +60,4 @@ class MySQL_Builder:
             )
             self.client.session.add(record)
         records = self.client.session.query(ServerErrorUsers).all()
-        return records
+        return parced_data, records

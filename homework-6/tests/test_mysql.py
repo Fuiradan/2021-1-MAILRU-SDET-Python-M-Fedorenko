@@ -9,23 +9,23 @@ class MySQLBase:
 
 class TestMySQL(MySQLBase):
     def test_RequestsByMethod(self):
-        records = self.mysql_builder.write_RequestsByMethod()
-        assert len(records) == 4
+        parced_data, records = self.mysql_builder.write_RequestsByMethod()
+        assert len(records) == len(parced_data)
 
     def test_TopRequests(self):
-        records = self.mysql_builder.write_TopRequests()
-        assert len(records) == 10
+        parced_data, records = self.mysql_builder.write_TopRequests()
+        assert len(records) == len(parced_data)
 
     def test_TotalRequests(self):
-        records = self.mysql_builder.write_TotalRequests()
-        assert len(records) == 1
+        parced_data, records = self.mysql_builder.write_TotalRequests()
+        assert len(records) == len(parced_data)
     
     def test_ClientErrorRequests(self):
-        records = self.mysql_builder.write_ClientErrorRequests()
-        assert len(records) == 5
+        parced_data, records = self.mysql_builder.write_ClientErrorRequests()
+        assert len(records) == len(parced_data)
     
     def test_ServerErrorUsers(self):
-        records = self.mysql_builder.write_ServerErrorUsers()
-        assert len(records) == 5
+        parced_data, records = self.mysql_builder.write_ServerErrorUsers()
+        assert len(records) == len(parced_data)
         
 
